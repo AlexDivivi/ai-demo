@@ -8,6 +8,7 @@ const Grid = styled.div`
   display: grid;
   grid-template-rows: auto 55px;
   height: 100vh;
+  background: whitesmoke;
 `
 
 class App extends Component {
