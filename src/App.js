@@ -20,7 +20,7 @@ class App extends Component {
             <Route path="/" exact render={() => <WineQuality />} />
           </div>
           <NavLink exact to="/">
-            PredictiveModel
+            Wine Quality
           </NavLink>
         </Grid>
       </Router>
