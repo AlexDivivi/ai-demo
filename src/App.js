@@ -4,11 +4,21 @@ import { BrowserRouter as Router, Route, NavLink } from 'react-router-dom'
 
 import WineQuality from './WineQuality'
 
+const colorGrey = '#242424'
+
 const Grid = styled.div`
   display: grid;
-  grid-template-rows: auto 55px;
+  grid-template-rows: 50px auto 50px;
   height: 100vh;
   background: whitesmoke;
+`
+
+const WrapperHeader = styled.header`
+  background: ${colorGrey};
+`
+
+const WrapperFooter = styled.footer`
+  background: ${colorGrey};
 `
 
 class App extends Component {
@@ -16,12 +26,15 @@ class App extends Component {
     return (
       <Router>
         <Grid>
+          <WrapperHeader />
           <div>
             <Route path="/" exact render={() => <WineQuality />} />
           </div>
-          <NavLink exact to="/">
-            Wine Quality
-          </NavLink>
+          <WrapperFooter>
+            <NavLink exact to="/">
+              Wine Quality
+            </NavLink>
+          </WrapperFooter>
         </Grid>
       </Router>
     )

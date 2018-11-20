@@ -24,4 +24,10 @@ ul{
   padding-right: 30px;
   font-size: 28px;
 }
+
+img {
+  object-fit: cover;
+  width: 100%;
+  height: 100px;
+}
 `
