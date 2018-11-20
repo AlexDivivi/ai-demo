@@ -10,24 +10,19 @@ body {
   margin: 0;
   padding: 0;
   text-align: center;
+  background: whitesmoke;
 }
 
-h1 {
-  font-size: 40px;
+h3{
+  font-family: 'Noto Serif', serif;
+  font-weight: 100;
+  letter-spacing: 0.1em;
+  color: rgb(100,100,100);
 }
 
-ul{
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  padding-left: 30px;
-  padding-right: 30px;
-  font-size: 28px;
-}
-
-img {
-  object-fit: cover;
-  width: 100%;
-  height: 100px;
+p{
+  font-family: 'Noto Sans SC', sans-serif;
+  font-size: 14px;
+  overflow-y: scroll;
 }
 `

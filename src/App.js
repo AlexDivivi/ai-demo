@@ -10,11 +10,11 @@ const Grid = styled.div`
   display: grid;
   grid-template-rows: 50px auto 50px;
   height: 100vh;
-  background: whitesmoke;
 `
 
 const WrapperHeader = styled.header`
   background: ${colorGrey};
+  opacity: 0.8;
 `
 
 const WrapperFooter = styled.footer`

@@ -1,5 +1,13 @@
 import React, { Component } from 'react'
 import * as tf from '@tensorflow/tfjs'
+import styled from 'styled-components'
+
+const Result = styled.div`
+  font-family: 'Noto Serif', serif;
+  font-weight: 100;
+  letter-spacing: 0.1em;
+  color: rgb(100, 100, 100);
+`
 
 export default class NeuralNetwork extends Component {
   state = {
@@ -24,6 +32,6 @@ export default class NeuralNetwork extends Component {
   }
 
   render() {
-    return <div>{this.state.result}</div>
+    return <Result>{this.state.result} / 10</Result>
   }
 }
