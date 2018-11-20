@@ -35,7 +35,7 @@ export default class WineQuality extends Component {
         min: 0.12,
         max: 1.58,
         value: 0.6,
-        step: 0.12,
+        step: 0.01,
         key: uid(),
         id: uid()
       },
@@ -67,7 +67,7 @@ export default class WineQuality extends Component {
         min: 0.01,
         max: 0.61,
         value: 0.1,
-        step: 0.05,
+        step: 0.01,
         key: uid(),
         id: uid()
       },
@@ -89,7 +89,7 @@ export default class WineQuality extends Component {
         min: 6,
         max: 289,
         value: 60,
-        step: 4,
+        step: 2,
         key: uid(),
         id: uid()
       },
@@ -100,7 +100,7 @@ export default class WineQuality extends Component {
         min: 0.9901,
         max: 1.0,
         value: 0.995,
-        step: 0.0005,
+        step: 0.0001,
         key: uid(),
         id: uid()
       },
@@ -111,7 +111,7 @@ export default class WineQuality extends Component {
         min: 2.74,
         max: 4.01,
         value: 3.1,
-        step: 0.05,
+        step: 0.01,
         key: uid(),
         id: uid()
       },
@@ -122,7 +122,7 @@ export default class WineQuality extends Component {
         min: 0.33,
         max: 2.0,
         value: 0.5,
-        step: 0.05,
+        step: 0.01,
         key: uid(),
         id: uid()
       },

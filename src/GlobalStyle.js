@@ -25,4 +25,8 @@ p{
   font-size: 14px;
   overflow-y: scroll;
 }
+
+input{
+  width: 70%;
+}
 `

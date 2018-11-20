@@ -80,16 +80,20 @@ export default class Form extends Component {
     ))
   }
 
+  handleClick(event) {
+    event.preventDefault()
+  }
+
   render() {
     return (
       <SectionForm>
         {this.renderInputs()}
         <PredictionBox>
           {' '}
-          <PredictionButton>
+          <PredictionButton onClick={event => this.handleClick(event)}>
             <p>Deliver Wine Quality</p>
           </PredictionButton>
-          <NeuralNetwork />
+          <NeuralNetwork data={this.props.data} />
         </PredictionBox>
       </SectionForm>
     )

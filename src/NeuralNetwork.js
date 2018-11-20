@@ -15,7 +15,9 @@ export default class NeuralNetwork extends Component {
   }
 
   componentDidMount() {
-    const xs = tf.tensor2d([[1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]])
+    let features = this.props.data.map(item => (features = item.value))
+    console.log(features)
+    const xs = tf.tensor2d([features])
     const result = async () => await this.makePrediction(xs)
     result().then(result =>
       this.setState({
