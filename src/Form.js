@@ -44,23 +44,6 @@ const PredictionBox = styled.div`
   font-family: 'Noto Serif', serif;
 `
 
-const PredictionButton = styled.button`
-  width: 100%;
-  height: 50%;
-  font-family: 'Noto Serif', serif;
-  font-weight: 100;
-  letter-spacing: 0.1em;
-  color: rgb(100, 100, 100);
-  background-color: whitesmoke;
-  box-shadow: 4px 4px 10px rgba(200, 200, 200, 0.5);
-  border: 0;
-
-  :focus {
-    outline: none;
-    box-shadow: 4px 4px 2px rgba(200, 200, 200, 1);
-  }
-`
-
 export default class Form extends Component {
   renderInputs() {
     return this.props.data.map(item => (
@@ -80,20 +63,17 @@ export default class Form extends Component {
     ))
   }
 
-  handleClick(event) {
-    event.preventDefault()
-  }
-
   render() {
     return (
       <SectionForm>
         {this.renderInputs()}
         <PredictionBox>
           {' '}
-          <PredictionButton onClick={event => this.handleClick(event)}>
-            <p>Deliver Wine Quality</p>
-          </PredictionButton>
-          <NeuralNetwork data={this.props.data} />
+          <h3>Your Wine Quality: </h3>
+          <span style={{ fontSize: '20px' }}>
+            {' '}
+            <NeuralNetwork data={this.props.data} />
+          </span>
         </PredictionBox>
       </SectionForm>
     )

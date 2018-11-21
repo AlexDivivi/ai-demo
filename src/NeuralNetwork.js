@@ -11,29 +11,33 @@ const Result = styled.div`
 
 export default class NeuralNetwork extends Component {
   state = {
-    result: 0
+    result: 0,
+    model: null,
+    componentMount: false
   }
 
-  componentDidMount() {
-    let features = this.props.data.map(item => (features = item.value))
-    console.log(features)
-    const xs = tf.tensor2d([features])
-    const result = async () => await this.makePrediction(xs)
-    result().then(result =>
-      this.setState({
-        result: result
-      })
-    )
-  }
-
-  async makePrediction(xs) {
+  async componentWillMount() {
     let model = await tf.loadModel('data/model/model.json')
-    const prediction = model.predict(xs, { batchSize: 1 }).flatten()
-    const result = Math.round(prediction.get([0]))
+    this.setState({
+      model: model,
+      componentMount: true
+    })
+  }
+
+  makePrediction() {
+    let features = this.props.data.map(item => (features = item.value))
+    const xs = tf.tensor2d([features])
+    if (this.state.componentMount) {
+      let model = this.state.model
+      const prediction = model.predict(xs, { batchSize: 1 }).flatten()
+      const result = Math.round(prediction.get([0]))
+      return result
+    }
+    const result = 0
     return result
   }
 
   render() {
-    return <Result>{this.state.result} / 10</Result>
+    return <Result>{this.makePrediction()} / 10</Result>
   }
 }
