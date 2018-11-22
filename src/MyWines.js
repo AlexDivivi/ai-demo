@@ -102,11 +102,11 @@ export default class MyWines extends Component {
 
   render() {
     return (
-      <Wrapper>
-        {' '}
+      <section>
         <SiteTopImg src="images/redwine.jpeg" alt="my-wines-cover" />
-        {this.renderWines()}
-      </Wrapper>
+
+        <Wrapper> {this.renderWines()}</Wrapper>
+      </section>
     )
   }
 }
