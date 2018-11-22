@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components'
+import styled, { createGlobalStyle } from 'styled-components'
 
 export const GlobalStyle = createGlobalStyle`
 
@@ -29,4 +29,14 @@ p{
 input{
   width: 70%;
 }
+`
+
+export const SiteTopImg = styled.img`
+  object-fit: cover;
+  width: 100%;
+  height: 265px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
 `

@@ -1,18 +1,8 @@
 import React, { Component } from 'react'
 import uid from 'uid'
-import styled from 'styled-components'
+import { SiteTopImg } from './GlobalStyle'
 
 import Form from './Form'
-
-const WineImg = styled.img`
-  object-fit: cover;
-  width: 100%;
-  height: 265px;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: -1;
-`
 
 export default class WineQuality extends Component {
   state = {
@@ -152,11 +142,19 @@ export default class WineQuality extends Component {
     })
   }
 
+  callback = savedResults => {
+    this.props.appCallback(savedResults)
+  }
+
   render() {
     return (
       <section>
-        <WineImg src="images/redwine.jpeg" alt="wine-qualtiy-cover" />
-        <Form data={this.state.wineData} updateValue={this.updateValue} />
+        <SiteTopImg src="images/redwine.jpeg" alt="wine-qualtiy-cover" />
+        <Form
+          data={this.state.wineData}
+          updateValue={this.updateValue}
+          wqCallback={this.callback}
+        />
       </section>
     )
   }

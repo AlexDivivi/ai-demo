@@ -9,9 +9,10 @@ const Result = styled.div`
   color: rgb(100, 100, 100);
 `
 
+const SaveButton = styled.button``
+
 export default class NeuralNetwork extends Component {
   state = {
-    result: 0,
     model: null,
     componentMount: false
   }
@@ -37,7 +38,27 @@ export default class NeuralNetwork extends Component {
     return result
   }
 
+  saveResult(userName, event) {
+    event.preventDefault()
+    let features = this.props.data.map(item => (features = item))
+    const result = this.makePrediction()
+    const results = { userName: userName, features, result }
+
+    this.props.callback(results)
+  }
+
   render() {
-    return <Result>{this.makePrediction()} / 10</Result>
+    const textInput = React.createRef()
+    return (
+      <React.Fragment>
+        <Result>{this.makePrediction()} / 10</Result>{' '}
+        <input ref={textInput} type="text" placeholder="Your Name..." />
+        <SaveButton
+          onClick={event => this.saveResult(textInput.current.value, event)}
+        >
+          Save
+        </SaveButton>
+      </React.Fragment>
+    )
   }
 }

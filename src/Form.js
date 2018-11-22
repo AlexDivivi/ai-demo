@@ -63,6 +63,10 @@ export default class Form extends Component {
     ))
   }
 
+  callback = savedResults => {
+    this.props.wqCallback(savedResults)
+  }
+
   render() {
     return (
       <SectionForm>
@@ -72,7 +76,7 @@ export default class Form extends Component {
           <h3>Your Wine Quality: </h3>
           <span style={{ fontSize: '20px' }}>
             {' '}
-            <NeuralNetwork data={this.props.data} />
+            <NeuralNetwork data={this.props.data} callback={this.callback} />
           </span>
         </PredictionBox>
       </SectionForm>
