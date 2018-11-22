@@ -21,6 +21,7 @@ const WineBox = styled.div`
   grid-template-columns: repeat(auto-fill, 50%);
   @media only screen and (max-width: 500px) {
     grid-template-columns: repeat(auto-fill, 100%);
+    height: 355px;
   }
   grid-auto-rows: auto;
   height: 320px;
