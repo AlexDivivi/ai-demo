@@ -23,15 +23,15 @@ const WineBox = styled.div`
     grid-template-columns: repeat(auto-fill, 100%);
     height: 355px;
   }
+  background: white;
+  border-radius: 5px;
+  box-shadow: 4px 4px 10px rgba(200, 200, 200, 0.5);
+  font-family: 'Noto Serif', serif;
   grid-auto-rows: auto;
   height: 320px;
-  box-shadow: 4px 4px 10px rgba(200, 200, 200, 0.5);
-  border-radius: 5px;
-  background: white;
-  padding: 10px 20px 20px 20px;
-  font-family: 'Noto Serif', serif;
   letter-spacing: 0.05em;
   overflow-y: scroll;
+  padding: 10px 20px 20px 20px;
 `
 
 const TextElement = styled.div`
