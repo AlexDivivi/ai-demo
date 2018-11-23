@@ -9,7 +9,20 @@ const Result = styled.div`
   color: rgb(100, 100, 100);
 `
 
-const SaveButton = styled.button``
+const SaveButton = styled.button`
+  font-family: 'Noto Serif', serif;
+  letter-spacing: 0.1em;
+  font-size: 14px;
+  background: whitesmoke;
+  border-radius: 5px;
+  border: 0;
+`
+
+const SaveBox = styled.div`
+  display: flex;
+  justify-content: space-around;
+  margin-top: 45px;
+`
 
 export default class NeuralNetwork extends Component {
   state = {
@@ -52,12 +65,23 @@ export default class NeuralNetwork extends Component {
     return (
       <React.Fragment>
         <Result>{this.makePrediction()} / 10</Result>{' '}
-        <input ref={textInput} type="text" placeholder="Your Name..." />
-        <SaveButton
-          onClick={event => this.saveResult(textInput.current.value, event)}
-        >
-          Save
-        </SaveButton>
+        <SaveBox>
+          <input
+            style={{ borderRadius: '5px', border: '0' }}
+            ref={textInput}
+            type="text"
+            placeholder="Your Name..."
+            required
+          />
+          <SaveButton
+            onClick={event =>
+              textInput.current.value &&
+              this.saveResult(textInput.current.value, event)
+            }
+          >
+            Save
+          </SaveButton>
+        </SaveBox>
       </React.Fragment>
     )
   }
