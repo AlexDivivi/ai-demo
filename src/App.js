@@ -34,6 +34,10 @@ class App extends Component {
     })
   }
 
+  wineDelete = id => {
+    console.log('clicked' + id)
+  }
+
   render() {
     return (
       <Router>
@@ -49,7 +53,12 @@ class App extends Component {
             <Route
               path="/mywines"
               exact
-              render={() => <MyWines wines={this.state.wineResults} />}
+              render={() => (
+                <MyWines
+                  wines={this.state.wineResults}
+                  onClick={this.wineDelete}
+                />
+              )}
             />
           </div>
           <WrapperFooter>

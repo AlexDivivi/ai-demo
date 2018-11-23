@@ -58,15 +58,16 @@ const FeatureValue = styled.span`
 
 const QualityValue = styled.span`
   font-family: 'Noto Serif', serif;
-  color: rgb(100, 100, 100);
+  color: #751d27;
   font-size: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 0;
-  margin: 0;
+  margin: 0 0 0 75px;
   @media only screen and (max-width: 500px) {
     margin-bottom: 15px;
+    margin-left: 125px;
   }
 `
 
@@ -79,6 +80,16 @@ const UserName = styled.h3`
   display: flex;
   justify-content: center;
   align-items: center;
+`
+
+const DeleteButton = styled.button`
+  margin-left: auto;
+  height: 25px;
+  width: 25px;
+  background: whitesmoke;
+  border: 0;
+  border-radius: 5px;
+  font-size: 12px;
 `
 
 const NothingMessage = styled.span`
@@ -99,12 +110,34 @@ export default class MyWines extends Component {
   renderWines() {
     return this.props.wines.map(item => (
       <WineBox key={uid()}>
-        <UserName>{item.userName}'s Wine </UserName>
-        {item.userName === 'Frauke' ? (
-          <QualityValue>{item.result} &copy;</QualityValue>
-        ) : (
-          <QualityValue>{item.result}</QualityValue>
-        )}
+        <div
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center'
+          }}
+        >
+          {' '}
+          <UserName>{item.userName}'s Wine </UserName>
+          {window.innerWidth < 500 && (
+            <DeleteButton onClick={() => this.props.onClick(item.id)}>
+              X
+            </DeleteButton>
+          )}
+        </div>
+        <div style={{ display: 'flex' }}>
+          {item.userName === 'Frauke' ? (
+            <QualityValue>{item.result} &copy;</QualityValue>
+          ) : (
+            <QualityValue>{item.result}</QualityValue>
+          )}
+          {window.innerWidth >= 500 && (
+            <DeleteButton onClick={() => this.props.onClick(item.id)}>
+              X
+            </DeleteButton>
+          )}
+        </div>
+
         {item.features.map(item => (
           <TextElement key={uid()}>
             {item.name}

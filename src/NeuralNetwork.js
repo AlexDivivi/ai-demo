@@ -6,7 +6,7 @@ const Result = styled.div`
   font-family: 'Noto Serif', serif;
   font-weight: 100;
   letter-spacing: 0.1em;
-  color: rgb(100, 100, 100);
+  color: #751d27;
 `
 
 const SaveButton = styled.button`
