@@ -81,6 +81,20 @@ const UserName = styled.h3`
   align-items: center;
 `
 
+const NothingMessage = styled.span`
+  font-size: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 400px;
+  @media only screen and (max-width: 375px) {
+    margin-top: 300px;
+  }
+  font-family: 'Noto Serif', serif;
+  letter-spacing: 0.1em;
+  color: rgba(100, 100, 100, 0.5);
+`
+
 export default class MyWines extends Component {
   renderWines() {
     return this.props.wines.map(item => (
@@ -105,8 +119,11 @@ export default class MyWines extends Component {
     return (
       <section>
         <SiteTopImg src="images/redwine.jpeg" alt="my-wines-cover" />
-
-        <Wrapper> {this.renderWines()}</Wrapper>
+        {this.props.wines.length > 0 ? (
+          <Wrapper> {this.renderWines()}</Wrapper>
+        ) : (
+          <NothingMessage>Nothing here yet.</NothingMessage>
+        )}
       </section>
     )
   }
