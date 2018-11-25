@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import * as tf from '@tensorflow/tfjs'
 import styled from 'styled-components'
+import uid from 'uid'
 
 const Result = styled.div`
   font-family: 'Noto Serif', serif;
@@ -57,7 +58,12 @@ export default class NeuralNetwork extends Component {
     event.preventDefault()
     let features = this.props.data.map(item => (features = item))
     const result = this.makePrediction()
-    const results = { userName: this.textInput.value, features, result }
+    const results = {
+      userName: this.textInput.value,
+      features,
+      result,
+      id: uid()
+    }
     this.props.callback(results)
     this.textInput.value = ''
   }

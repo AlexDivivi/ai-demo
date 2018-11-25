@@ -79,6 +79,9 @@ const UserName = styled.h3`
   display: flex;
   justify-content: center;
   align-items: center;
+  @media only screen and (max-width: 500px) {
+    padding-left: 15px;
+  }
 `
 
 const DeleteButton = styled.button`

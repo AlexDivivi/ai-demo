@@ -35,7 +35,15 @@ class App extends Component {
   }
 
   wineDelete = id => {
-    console.log('clicked' + id)
+    const { wineResults } = this.state
+    const index = wineResults.findIndex(data => id === data.id)
+    const updateValue = [
+      ...wineResults.slice(0, index),
+      ...wineResults.slice(index + 1)
+    ]
+    this.setState({
+      wineResults: updateValue
+    })
   }
 
   render() {
