@@ -7,6 +7,8 @@ const Result = styled.div`
   font-weight: 100;
   letter-spacing: 0.1em;
   color: #751d27;
+  font-size: 23px;
+  padding-bottom: 10px;
 `
 
 const SaveButton = styled.button`
