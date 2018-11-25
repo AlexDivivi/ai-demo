@@ -23,7 +23,6 @@ h3{
 p{
   font-family: 'Noto Sans SC', sans-serif;
   font-size: 14px;
-  overflow-y: scroll;
 }
 
 input{

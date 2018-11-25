@@ -30,7 +30,6 @@ const WineBox = styled.div`
   grid-auto-rows: auto;
   height: 320px;
   letter-spacing: 0.05em;
-  overflow-y: scroll;
   padding: 10px 20px 20px 20px;
 `
 

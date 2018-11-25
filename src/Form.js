@@ -2,8 +2,10 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 import NeuralNetwork from './NeuralNetwork'
 
+const boxHeight = '290px'
+
 const Wrapper = styled.label`
-  height: 237px;
+  height: ${boxHeight};
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -32,7 +34,7 @@ const SectionForm = styled.form`
 `
 
 const PredictionBox = styled.div`
-  height: 237px;
+  height: ${boxHeight};
   display: flex;
   flex-direction: column;
   align-items: center;
