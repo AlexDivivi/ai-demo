@@ -51,33 +51,29 @@ export default class NeuralNetwork extends Component {
     return result
   }
 
-  saveResult(userName, event) {
+  saveResult(event) {
     event.preventDefault()
     let features = this.props.data.map(item => (features = item))
     const result = this.makePrediction()
-    const results = { userName: userName, features, result }
-
+    const results = { userName: this.textInput.value, features, result }
     this.props.callback(results)
+    this.textInput.value = ''
   }
 
   render() {
-    const textInput = React.createRef()
     return (
       <React.Fragment>
         <Result>{this.makePrediction()} / 10</Result>{' '}
         <SaveBox>
           <input
             style={{ borderRadius: '5px', border: '0' }}
-            ref={textInput}
+            ref={el => (this.textInput = el)}
             type="text"
             placeholder="Your Name..."
             required
           />
           <SaveButton
-            onClick={event =>
-              textInput.current.value &&
-              this.saveResult(textInput.current.value, event)
-            }
+            onClick={event => this.textInput.value && this.saveResult(event)}
           >
             Save
           </SaveButton>
