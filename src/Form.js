@@ -6,6 +6,9 @@ const boxHeight = '290px'
 
 const Wrapper = styled.label`
   height: ${boxHeight};
+  @media only screen and (max-width: 500px) {
+    height: auto;
+  }
   display: flex;
   flex-direction: column;
   align-items: center;
