@@ -9,6 +9,9 @@ const Wrapper = styled.div`
   @media only screen and (max-width: 500px) {
     grid-template-columns: repeat(auto-fill, 300px);
   }
+  @media only screen and (min-width: 1200px) {
+    width: 1200px;
+  }
   grid-auto-rows: auto;
   grid-gap: 15px;
   margin-top: 170px;
@@ -102,6 +105,7 @@ const NothingMessage = styled.span`
   margin-top: 400px;
   @media only screen and (max-width: 375px) {
     margin-top: 300px;
+    font-size: 30px;
   }
   font-family: 'Noto Serif', serif;
   letter-spacing: 0.1em;
@@ -154,11 +158,13 @@ export default class MyWines extends Component {
     return (
       <section>
         <SiteTopImg src="images/redwine.jpeg" alt="my-wines-cover" />
-        {this.props.wines.length > 0 ? (
-          <Wrapper> {this.renderWines()}</Wrapper>
-        ) : (
-          <NothingMessage>Nothing here yet.</NothingMessage>
-        )}
+        <div style={{ display: 'flex', justifyContent: 'center' }}>
+          {this.props.wines.length > 0 ? (
+            <Wrapper> {this.renderWines()}</Wrapper>
+          ) : (
+            <NothingMessage>Nothing here yet.</NothingMessage>
+          )}
+        </div>
       </section>
     )
   }

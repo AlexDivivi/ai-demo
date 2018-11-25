@@ -34,6 +34,9 @@ const SectionForm = styled.form`
   margin-bottom: 20px;
   justify-content: center;
   align-items: center;
+  @media only screen and (min-width: 1200px) {
+    width: 1000px;
+  }
 `
 
 const PredictionBox = styled.div`
@@ -74,17 +77,19 @@ export default class Form extends Component {
 
   render() {
     return (
-      <SectionForm>
-        {this.renderInputs()}
-        <PredictionBox>
-          {' '}
-          <h3>Your Wine Quality: </h3>
-          <span style={{ fontSize: '20px' }}>
+      <div style={{ display: 'flex', justifyContent: 'center' }}>
+        <SectionForm>
+          {this.renderInputs()}
+          <PredictionBox>
             {' '}
-            <NeuralNetwork data={this.props.data} callback={this.callback} />
-          </span>
-        </PredictionBox>
-      </SectionForm>
+            <h3>Your Wine Quality: </h3>
+            <span style={{ fontSize: '20px' }}>
+              {' '}
+              <NeuralNetwork data={this.props.data} callback={this.callback} />
+            </span>
+          </PredictionBox>
+        </SectionForm>
+      </div>
     )
   }
 }
