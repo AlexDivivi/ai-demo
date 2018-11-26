@@ -20,6 +20,30 @@ const WrapperHeader = styled.header`
 
 const WrapperFooter = styled.footer`
   background: ${colorGrey};
+  display: flex;
+  bottom: 0;
+  position: sticky;
+  opacity: 0.8;
+
+  a:any-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: black;
+    width: 100%;
+    background: #efefef;
+
+    &:first-child {
+      border-right: 1px solid white;
+    }
+
+    &.active {
+      background: ${colorGrey};
+      color: white;
+    }
+  }
 `
 
 class App extends Component {

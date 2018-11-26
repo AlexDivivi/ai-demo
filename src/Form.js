@@ -31,7 +31,7 @@ const SectionForm = styled.form`
   grid-auto-rows: auto;
   grid-gap: 15px;
   margin-top: 170px;
-  margin-bottom: 20px;
+  margin-bottom: 40px;
   justify-content: center;
   align-items: center;
   @media only screen and (min-width: 1200px) {
