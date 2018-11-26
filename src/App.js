@@ -39,10 +39,6 @@ const WrapperFooter = styled.footer`
     width: 100%;
     background: #efefef;
 
-    &:nth-child() {
-      border-right: 1px solid white;
-    }
-
     &.active {
       background: ${colorGrey};
       color: white;

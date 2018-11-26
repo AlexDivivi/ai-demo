@@ -19,6 +19,7 @@ const Wrapper = styled.div`
   justify-content: center;
   align-items: center;
 `
+
 const WineBox = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fill, 50%);

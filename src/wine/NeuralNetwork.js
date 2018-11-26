@@ -71,7 +71,7 @@ export default class NeuralNetwork extends Component {
   render() {
     return (
       <React.Fragment>
-        <Result>{this.makePrediction()} / 10</Result>{' '}
+        <Result>{this.makePrediction()} / 10</Result>
         <SaveBox>
           <input
             style={{ borderRadius: '5px', border: '0' }}
