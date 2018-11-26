@@ -2,8 +2,9 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 import { BrowserRouter as Router, Route, NavLink } from 'react-router-dom'
 
-import WineQuality from './WineQuality'
-import MyWines from './MyWines'
+import WineQuality from './wine/WineQuality'
+import MyWines from './wine/MyWines'
+import Chatbot from './Chatbot'
 
 const colorGrey = '#242424'
 
@@ -38,7 +39,7 @@ const WrapperFooter = styled.footer`
     width: 100%;
     background: #efefef;
 
-    &:first-child {
+    &:nth-child() {
       border-right: 1px solid white;
     }
 
@@ -95,6 +96,7 @@ class App extends Component {
                 />
               )}
             />
+            <Route path="/chatbot" exact render={() => <Chatbot />} />
           </div>
           <WrapperFooter>
             <NavLink exact to="/">
@@ -102,6 +104,9 @@ class App extends Component {
             </NavLink>{' '}
             <NavLink exact to="/mywines">
               My Wines{' '}
+            </NavLink>
+            <NavLink exact to="/chatbot">
+              Chatbot
             </NavLink>
           </WrapperFooter>
         </Grid>

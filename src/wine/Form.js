@@ -55,7 +55,7 @@ const PredictionBox = styled.div`
 export default class Form extends Component {
   renderInputs() {
     return this.props.data.map(item => (
-      <Wrapper key={item.key}>
+      <Wrapper key={item.id}>
         <h3>{item.name}</h3>
         <p>{item.text}</p>
         <ValueBox>{item.value}</ValueBox>
@@ -81,10 +81,8 @@ export default class Form extends Component {
         <SectionForm>
           {this.renderInputs()}
           <PredictionBox>
-            {' '}
-            <h3>Your Wine Quality: </h3>
+            <h3>Your Wine Quality:</h3>
             <span style={{ fontSize: '20px' }}>
-              {' '}
               <NeuralNetwork data={this.props.data} callback={this.callback} />
             </span>
           </PredictionBox>

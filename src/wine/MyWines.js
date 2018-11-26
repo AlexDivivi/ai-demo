@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { SiteTopImg } from './GlobalStyle'
+import { SiteTopImg } from '../GlobalStyle'
 import styled from 'styled-components'
 import uid from 'uid'
 
