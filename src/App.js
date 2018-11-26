@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Route, NavLink } from 'react-router-dom'
 
 import WineQuality from './wine/WineQuality'
 import MyWines from './wine/MyWines'
-import Chatbot from './Chatbot'
+import Chatbot from './chatbot/Chatbot'
 
 const colorGrey = '#242424'
 
