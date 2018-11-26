@@ -32,6 +32,9 @@ const WrapperFooter = styled.footer`
     justify-content: center;
     text-decoration: none;
     color: black;
+    font-family: 'Noto Serif', serif;
+    font-weight: 100;
+    letter-spacing: 0.1em;
     width: 100%;
     background: #efefef;
 
