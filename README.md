@@ -4,4 +4,4 @@ Build in React.
 
 Wine Quality uses Tensorflow.
 
-Chatbot importet from here: https://github.com/lukalabs/cakechat
+Chatbot imported from here: https://github.com/lukalabs/cakechat
