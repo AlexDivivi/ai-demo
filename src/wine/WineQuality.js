@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import uid from 'uid'
-import { SiteTopImg } from './GlobalStyle'
+import { SiteTopImg } from '../GlobalStyle'
 
 import Form from './Form'
 
@@ -15,7 +15,6 @@ export default class WineQuality extends Component {
         max: 15.9,
         value: 7.0,
         step: 0.1,
-        key: uid(),
         id: uid()
       },
       {
@@ -26,7 +25,6 @@ export default class WineQuality extends Component {
         max: 1.58,
         value: 0.6,
         step: 0.01,
-        key: uid(),
         id: uid()
       },
       {
@@ -37,7 +35,6 @@ export default class WineQuality extends Component {
         max: 1.0,
         value: 0.5,
         step: 0.1,
-        key: uid(),
         id: uid()
       },
       {
@@ -48,7 +45,6 @@ export default class WineQuality extends Component {
         max: 15.5,
         value: 2.5,
         step: 0.1,
-        key: uid(),
         id: uid()
       },
       {
@@ -58,7 +54,6 @@ export default class WineQuality extends Component {
         max: 0.61,
         value: 0.1,
         step: 0.01,
-        key: uid(),
         id: uid()
       },
       {
@@ -69,7 +64,6 @@ export default class WineQuality extends Component {
         max: 72,
         value: 20,
         step: 1,
-        key: uid(),
         id: uid()
       },
       {
@@ -80,7 +74,6 @@ export default class WineQuality extends Component {
         max: 289,
         value: 60,
         step: 2,
-        key: uid(),
         id: uid()
       },
       {
@@ -91,7 +84,6 @@ export default class WineQuality extends Component {
         max: 1.0,
         value: 0.995,
         step: 0.0001,
-        key: uid(),
         id: uid()
       },
       {
@@ -102,7 +94,6 @@ export default class WineQuality extends Component {
         max: 4.01,
         value: 3.1,
         step: 0.01,
-        key: uid(),
         id: uid()
       },
       {
@@ -113,7 +104,6 @@ export default class WineQuality extends Component {
         max: 2.0,
         value: 0.5,
         step: 0.01,
-        key: uid(),
         id: uid()
       },
       {
@@ -123,7 +113,6 @@ export default class WineQuality extends Component {
         max: 14.9,
         value: 9.5,
         step: 0.1,
-        key: uid(),
         id: uid()
       }
     ]

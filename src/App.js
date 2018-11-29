@@ -2,8 +2,9 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 import { BrowserRouter as Router, Route, NavLink } from 'react-router-dom'
 
-import WineQuality from './WineQuality'
-import MyWines from './MyWines'
+import WineQuality from './wine/WineQuality'
+import MyWines from './wine/MyWines'
+import Chatbot from './chatbot/Chatbot'
 
 const colorGrey = '#242424'
 
@@ -38,10 +39,6 @@ const WrapperFooter = styled.footer`
     width: 100%;
     background: #efefef;
 
-    &:first-child {
-      border-right: 1px solid white;
-    }
-
     &.active {
       background: ${colorGrey};
       color: white;
@@ -51,7 +48,8 @@ const WrapperFooter = styled.footer`
 
 class App extends Component {
   state = {
-    wineResults: this.loadWines()
+    wineResults: this.loadWines(),
+    chatbotActive: false
   }
 
   wineCallback = savedResults => {
@@ -83,7 +81,7 @@ class App extends Component {
               path="/"
               exact
               render={() => <WineQuality appCallback={this.wineCallback} />}
-            />{' '}
+            />
             {this.saveWines()}
             <Route
               path="/mywines"
@@ -95,14 +93,22 @@ class App extends Component {
                 />
               )}
             />
+            {this.state.chatbotActive && (
+              <Route path="/chatbot" exact render={() => <Chatbot />} />
+            )}
           </div>
           <WrapperFooter>
             <NavLink exact to="/">
               Wine Quality
-            </NavLink>{' '}
-            <NavLink exact to="/mywines">
-              My Wines{' '}
             </NavLink>
+            <NavLink exact to="/mywines">
+              My Wines
+            </NavLink>
+            {this.state.chatbotActive && (
+              <NavLink exact to="/chatbot">
+                Chatbot
+              </NavLink>
+            )}
           </WrapperFooter>
         </Grid>
       </Router>
