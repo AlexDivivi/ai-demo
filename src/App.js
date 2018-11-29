@@ -49,7 +49,7 @@ const WrapperFooter = styled.footer`
 class App extends Component {
   state = {
     wineResults: this.loadWines(),
-    chatbotActive: true
+    chatbotActive: false
   }
 
   wineCallback = savedResults => {
@@ -81,7 +81,7 @@ class App extends Component {
               path="/"
               exact
               render={() => <WineQuality appCallback={this.wineCallback} />}
-            />{' '}
+            />
             {this.saveWines()}
             <Route
               path="/mywines"
@@ -100,9 +100,9 @@ class App extends Component {
           <WrapperFooter>
             <NavLink exact to="/">
               Wine Quality
-            </NavLink>{' '}
+            </NavLink>
             <NavLink exact to="/mywines">
-              My Wines{' '}
+              My Wines
             </NavLink>
             {this.state.chatbotActive && (
               <NavLink exact to="/chatbot">
