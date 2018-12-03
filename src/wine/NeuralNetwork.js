@@ -74,7 +74,7 @@ export default class NeuralNetwork extends Component {
         <Result>{this.makePrediction()} / 10</Result>
         <SaveBox>
           <input
-            style={{ borderRadius: '5px', border: '0' }}
+            style={{ width: '70%', borderRadius: '5px', border: '0' }}
             ref={el => (this.textInput = el)}
             type="text"
             placeholder="Your Name..."

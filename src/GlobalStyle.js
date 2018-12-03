@@ -24,10 +24,6 @@ p{
   font-family: 'Noto Sans SC', sans-serif;
   font-size: 14px;
 }
-
-input{
-  width: 70%;
-}
 `
 
 export const SiteTopImg = styled.img`

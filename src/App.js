@@ -49,7 +49,7 @@ const WrapperFooter = styled.footer`
 class App extends Component {
   state = {
     wineResults: this.loadWines(),
-    chatbotActive: false
+    chatbotActive: true
   }
 
   wineCallback = savedResults => {

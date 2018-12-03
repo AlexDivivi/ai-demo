@@ -61,6 +61,7 @@ export default class Form extends Component {
         <ValueBox>{item.value}</ValueBox>
         <input
           type="range"
+          style={{ width: '70%' }}
           onChange={event => this.props.updateValue(event, item.id)}
           step={item.step}
           min={item.min}

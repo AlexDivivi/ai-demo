@@ -6,8 +6,8 @@ export default class ChatbotAnswer extends Component {
     message: null
   }
 
-  componentWillMount() {
-    postMessage().then(message => {
+  componentWillReceiveProps() {
+    postMessage(this.props.context).then(message => {
       this.setState({
         message: message.response
       })
@@ -15,6 +15,6 @@ export default class ChatbotAnswer extends Component {
   }
 
   render() {
-    return <div>{this.state.message}</div>
+    return <React.Fragment>{this.state.message}</React.Fragment>
   }
 }
