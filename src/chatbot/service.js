@@ -1,5 +1,4 @@
 export async function postMessage(context) {
-  console.log(context)
   var url = 'http://127.0.0.1:8080/cakechat_api/v1/actions/get_response'
   var message = {
     context: context,

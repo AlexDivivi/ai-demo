@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 import uid from 'uid'
-import ChatbotAnswer from './ChatbotAnswer'
+import { postMessage } from './service'
 
 const Wrapper = styled.div`
   display: flex;
@@ -63,7 +63,7 @@ export default class Chatbot extends Component {
     return (
       <React.Fragment>
         <ChatAnswer ref={el => (this.response = el)}>
-          <ChatbotAnswer context={this.state.context} />
+          {this.state.message}
         </ChatAnswer>
         {this.renderChatLog()}
       </React.Fragment>
@@ -80,6 +80,21 @@ export default class Chatbot extends Component {
     )
   }
 
+  async handleInput(event) {
+    if (event.key === 'Enter' && this.textInput.value) {
+      await this.updateContext()
+      this.getResponse(this.state.context)
+    }
+  }
+
+  getResponse(context) {
+    postMessage(context).then(message => {
+      this.setState({
+        message: message.response
+      })
+    })
+  }
+
   render() {
     return (
       <Wrapper>
@@ -89,14 +104,9 @@ export default class Chatbot extends Component {
             type="text"
             placeholder="Your message ... "
             required
-            onKeyUp={event =>
-              event.key === 'Enter' &&
-              this.textInput.value &&
-              this.updateContext()
-            }
+            onKeyUp={event => this.handleInput(event)}
           />
           {this.renderChat()}
-          {console.log(this.state.context)}
         </ChatBox>
       </Wrapper>
     )
