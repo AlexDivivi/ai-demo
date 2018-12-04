@@ -10,13 +10,8 @@ const colorGrey = '#242424'
 
 const Grid = styled.div`
   display: grid;
-  grid-template-rows: 50px auto 50px;
+  grid-template-rows: auto 50px;
   height: 100vh;
-`
-
-const WrapperHeader = styled.header`
-  background: ${colorGrey};
-  opacity: 0.8;
 `
 
 const WrapperFooter = styled.footer`
@@ -75,7 +70,6 @@ class App extends Component {
     return (
       <Router>
         <Grid>
-          <WrapperHeader />
           <div>
             <Route
               path="/"
