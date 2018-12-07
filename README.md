@@ -1,4 +1,4 @@
-Final Project of neue fische Trainee Web Development programm.
+Final Project of neue fische Trainee Web Development program.
 
 Build in React.
 
