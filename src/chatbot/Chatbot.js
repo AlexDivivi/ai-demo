@@ -25,6 +25,18 @@ const ChatBox = styled.div`
   background: white;
   margin-top: 170px;
   margin-bottom: 40px;
+  @media only screen and (max-width: 320px) {
+    height: 320px;
+    width: 300px;
+  }
+  @media only screen and (min-width: 321px) and (max-width: 375px) {
+    height: 420px;
+    width: 310px;
+  }
+  @media only screen and (min-width: 376px) and (max-width: 450px) {
+    height: 420px;
+    width: 260px;
+  }
 `
 
 const ChatAnswer = styled.span`
@@ -60,7 +72,12 @@ const ChatInput = styled.input`
 export default class Chatbot extends Component {
   state = {
     context: ['Hello', 'Hello', 'Hello'],
-    chatLog: []
+    chatLog: [
+      {
+        user: false,
+        message: 'Hi and welcome! You can talk to me about small things.'
+      }
+    ]
   }
 
   async handleInput(event) {
