@@ -138,7 +138,7 @@ export default class WineQuality extends Component {
   render() {
     return (
       <section>
-        <SiteTopImg src="images/redwine.jpeg" alt="wine-qualtiy-cover" />
+        <SiteTopImg src="images/redwine-min.jpeg" alt="wine-qualtiy-cover" />
         <Form
           data={this.state.wineData}
           updateValue={this.updateValue}

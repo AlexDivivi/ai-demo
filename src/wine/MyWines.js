@@ -158,7 +158,7 @@ export default class MyWines extends Component {
   render() {
     return (
       <section>
-        <SiteTopImg src="images/redwine.jpeg" alt="my-wines-cover" />
+        <SiteTopImg src="images/redwine-min.jpeg" alt="my-wines-cover" />
         <div style={{ display: 'flex', justifyContent: 'center' }}>
           {this.props.wines.length > 0 ? (
             <Wrapper> {this.renderWines()}</Wrapper>

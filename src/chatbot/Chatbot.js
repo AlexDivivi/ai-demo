@@ -129,7 +129,7 @@ export default class Chatbot extends Component {
     return (
       <Wrapper>
         <SiteTopImg
-          src="images/sergi-kabrera-705414-unsplash.jpg"
+          src="images/samuel-zeller-34751-unsplash-min.jpg"
           alt="chatbot-cover"
         />
         <ChatBox>
