@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 import uid from 'uid'
 import { postMessage } from './service'
-import { SiteTopImg } from '../GlobalStyle'
 
 const Wrapper = styled.div`
   display: flex;
@@ -13,60 +12,101 @@ const Wrapper = styled.div`
 `
 
 const ChatBox = styled.div`
-  height: 450px;
-  width: 400px;
+  height: 80%;
+  width: 40%;
+  opacity: 0.9;
   background: white;
   display: flex;
   flex-direction: column-reverse;
   align-items: center;
   overflow-y: scroll;
-  box-shadow: 4px 4px 10px rgba(200, 200, 200, 0.5);
-  border-radius: 5px;
-  background: white;
-  margin-top: 170px;
+  border-radius: 8px;
+  background: rgb(10, 10, 10);
   margin-bottom: 40px;
-  @media only screen and (max-width: 320px) {
-    height: 320px;
-    width: 300px;
-  }
-  @media only screen and (min-width: 321px) and (max-width: 375px) {
-    height: 420px;
-    width: 310px;
-  }
-  @media only screen and (min-width: 376px) and (max-width: 450px) {
-    height: 420px;
-    width: 260px;
+  padding: 30px;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+  @media only screen and (max-width: 1040px) {
+    width: 95%;
+    height: 90%;
   }
 `
 
-const ChatAnswer = styled.span`
-  margin: 0 0 10px 20px;
+const ChatAnswer = styled.div`
   margin-right: auto;
+  opacity: 1;
+  margin-bottom: 15px;
   background: whitesmoke;
-  padding: 2px 5px 2px 5px;
-  border-radius: 5px;
+  padding: 15px;
+  border-radius: 15px 15px 15px 0;
   max-width: 45%;
+  text-align: left;
+  line-height: 1.2em;
+  font-size: 0.9em;
+  color: black;
 `
 
-const ChatUserMessage = styled.span`
-  margin: 0 20px 10px 0;
+const ChatUserMessage = styled.div`
   margin-left: auto;
+  opacity: 1;
+  margin-bottom: 15px;
   background: whitesmoke;
-  padding: 2px 5px 2px 5px;
-  border-radius: 5px;
+  padding: 15px;
+  border-radius: 15px 15px 0 15px;
   max-width: 45%;
+  text-align: left;
+  line-height: 1.2em;
+  font-size: 0.9em;
+  text-align: right;
+  color: black;
 `
 
 const ChatInput = styled.input`
-  width: 90%;
-  height: 30px;
-  text-align: center;
-  font-size: 18px;
+  width: 70%;
+  font-size: 14px;
   font-family: 'Noto Sans SC', sans-serif;
-  margin-top: 20px;
-  margin-bottom: 20px;
   border-radius: 5px;
   border: 0;
+  border-radius: 5px 0 0 5px;
+  background-color: whitesmoke;
+  padding-left: 15px;
+  height: 40px;
+
+  ::placeholder {
+    color: black;
+  }
+`
+
+const ChatInputWrapper = styled.div`
+  display: block;
+  opacity: 1;
+  width: 100%;
+  border-radius: 5px;
+  box-shadow: 0 0 2px rgba(255, 255, 255, 1);
+`
+
+const ChatInputButton = styled.button`
+  font-family: 'Noto Sans SC', sans-serif;
+  height: 40px;
+  font-size: 14px;
+  background: #414141;
+  color: whitesmoke;
+  border-radius: 0 5px 5px 0;
+  border: 0;
+  width: 30%;
+
+  :focus {
+    border: none;
+  }
+`
+
+const SiteImg = styled.img`
+  top: 0;
+  left: 0;
+  object-fit: cover;
+  position: absolute;
+  z-index: -1;
+  height: 100%;
+  width: 100%;
 `
 
 export default class Chatbot extends Component {
@@ -80,11 +120,9 @@ export default class Chatbot extends Component {
     ]
   }
 
-  async handleInput(event) {
-    if (event.key === 'Enter' && this.textInput.value) {
-      await this.updateContext()
-      this.getResponse(this.state.context)
-    }
+  async handleInput() {
+    await this.updateContext()
+    this.getResponse(this.state.context)
   }
 
   getResponse(context) {
@@ -144,22 +182,32 @@ export default class Chatbot extends Component {
 
   render() {
     return (
-      <Wrapper>
-        <SiteTopImg
-          src="images/samuel-zeller-34751-unsplash-min.jpg"
-          alt="chatbot-cover"
-        />
-        <ChatBox>
-          <ChatInput
-            ref={el => (this.textInput = el)}
-            type="text"
-            placeholder="Your message ... "
-            required
-            onKeyUp={event => this.handleInput(event)}
-          />
-          {this.renderChat()}
-        </ChatBox>
-      </Wrapper>
+      <React.Fragment>
+        <SiteImg src="images/chat.jpg" />
+        <Wrapper>
+          <ChatBox>
+            <ChatInputWrapper>
+              <ChatInput
+                ref={el => (this.textInput = el)}
+                type="text"
+                placeholder="Your message ... "
+                required
+                onKeyUp={event =>
+                  event.key === 'Enter' &&
+                  this.textInput.value &&
+                  this.handleInput()
+                }
+              />
+              <ChatInputButton
+                onClick={() => this.textInput.value && this.handleInput()}
+              >
+                SEND
+              </ChatInputButton>
+            </ChatInputWrapper>
+            {this.renderChat()}
+          </ChatBox>
+        </Wrapper>
+      </React.Fragment>
     )
   }
 }

@@ -5,25 +5,26 @@ import uid from 'uid'
 
 const Result = styled.div`
   font-family: 'Noto Serif', serif;
-  font-weight: 100;
-  letter-spacing: 0.1em;
+  font-weight: bold;
   color: #751d27;
+  letter-spacing: 0.1em;
   font-size: 23px;
   padding-bottom: 10px;
 `
 
 const SaveButton = styled.button`
   font-family: 'Noto Serif', serif;
-  letter-spacing: 0.1em;
   font-size: 14px;
-  background: whitesmoke;
-  border-radius: 5px;
+  background: rgb(100, 100, 100);
+  color: whitesmoke;
+  border-radius: 0 5px 5px 0;
   border: 0;
+  width: 30%;
 `
 
 const SaveBox = styled.div`
   display: flex;
-  justify-content: space-around;
+  width: 100%;
   margin-top: 45px;
 `
 
@@ -74,7 +75,15 @@ export default class NeuralNetwork extends Component {
         <Result>{this.makePrediction()} / 10</Result>
         <SaveBox>
           <input
-            style={{ width: '70%', borderRadius: '5px', border: '0' }}
+            style={{
+              borderRadius: '5px 0 0 5px',
+              border: '0',
+              backgroundColor: 'whitesmoke',
+              paddingLeft: '15px',
+              fontSize: '14px',
+              width: '70%',
+              height: '40px'
+            }}
             ref={el => (this.textInput = el)}
             type="text"
             placeholder="Your Name..."

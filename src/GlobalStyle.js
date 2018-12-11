@@ -16,8 +16,9 @@ body {
 h3{
   font-family: 'Noto Serif', serif;
   font-weight: 100;
-  letter-spacing: 0.1em;
-  color: rgb(100,100,100);
+  letter-spacing: 0.04em;
+  font-size: 1.5em;
+  color: #751d27;
 }
 
 p{
@@ -28,9 +29,10 @@ p{
 
 export const SiteTopImg = styled.img`
   object-fit: cover;
+  opacity: 0.95;
   width: 100%;
   height: 265px;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   z-index: -1;

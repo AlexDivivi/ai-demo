@@ -19,7 +19,7 @@ const WrapperFooter = styled.footer`
   display: flex;
   bottom: 0;
   position: sticky;
-  opacity: 0.8;
+  border-top: 1px solid #d1cdc7;
 
   a:any-link {
     display: flex;
@@ -30,13 +30,18 @@ const WrapperFooter = styled.footer`
     color: black;
     font-family: 'Noto Serif', serif;
     font-weight: 100;
-    letter-spacing: 0.1em;
     width: 100%;
-    background: #efefef;
+    background: #f8f8f8;
+    font-size: 1.2em;
+    padding: 6px 5px 9px 5px;
+    line-height: 0.95em;
 
     &.active {
       background: ${colorGrey};
       color: white;
+    }
+    &:last-child {
+      border-left: 1px solid white;
     }
   }
 `
@@ -70,27 +75,25 @@ class App extends Component {
     return (
       <Router>
         <Grid>
-          <div>
-            <Route
-              path="/"
-              exact
-              render={() => <WineQuality appCallback={this.wineCallback} />}
-            />
-            {this.saveWines()}
-            <Route
-              path="/mywines"
-              exact
-              render={() => (
-                <MyWines
-                  wines={this.state.wineResults}
-                  onClick={this.wineDelete}
-                />
-              )}
-            />
-            {this.state.chatbotActive && (
-              <Route path="/chatbot" exact render={() => <Chatbot />} />
+          <Route
+            path="/"
+            exact
+            render={() => <WineQuality appCallback={this.wineCallback} />}
+          />
+          {this.saveWines()}
+          <Route
+            path="/mywines"
+            exact
+            render={() => (
+              <MyWines
+                wines={this.state.wineResults}
+                onClick={this.wineDelete}
+              />
             )}
-          </div>
+          />
+          {this.state.chatbotActive && (
+            <Route path="/chatbot" exact render={() => <Chatbot />} />
+          )}
           <WrapperFooter>
             <NavLink exact to="/">
               Wine Quality

@@ -25,11 +25,11 @@ const WineBox = styled.div`
   grid-template-columns: repeat(auto-fill, 50%);
   @media only screen and (max-width: 500px) {
     grid-template-columns: repeat(auto-fill, 100%);
-    height: 355px;
+    height: 370px;
   }
   background: white;
   border-radius: 5px;
-  box-shadow: 4px 4px 10px rgba(200, 200, 200, 0.5);
+  box-shadow: 0 0 15px rgba(107, 101, 98, 0.5);
   font-family: 'Noto Serif', serif;
   grid-auto-rows: auto;
   height: 320px;
@@ -62,7 +62,7 @@ const FeatureValue = styled.span`
 const QualityValue = styled.span`
   font-family: 'Noto Serif', serif;
   color: #751d27;
-  font-size: 20px;
+  font-size: 25px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -78,7 +78,7 @@ const UserName = styled.h3`
   font-family: 'Noto Serif', serif;
   font-weight: 100;
   letter-spacing: 0.1em;
-  color: rgb(100, 100, 100);
+  color: #751d27;
   padding: 0;
   display: flex;
   justify-content: center;
@@ -98,21 +98,6 @@ const DeleteButton = styled.button`
   font-size: 12px;
 `
 
-const NothingMessage = styled.span`
-  font-size: 40px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 400px;
-  @media only screen and (max-width: 375px) {
-    margin-top: 300px;
-    font-size: 30px;
-  }
-  font-family: 'Noto Serif', serif;
-  letter-spacing: 0.1em;
-  color: rgba(100, 100, 100, 0.5);
-`
-
 export default class MyWines extends Component {
   renderWines() {
     return this.props.wines.map(item => (
@@ -125,7 +110,7 @@ export default class MyWines extends Component {
           }}
         >
           {' '}
-          <UserName>{item.userName}'s Wine </UserName>
+          <UserName>{item.userName}'s wine </UserName>
           {window.innerWidth < 500 && (
             <DeleteButton onClick={() => this.props.onClick(item.id)}>
               X
@@ -160,11 +145,7 @@ export default class MyWines extends Component {
       <section>
         <SiteTopImg src="images/redwine-min.jpeg" alt="my-wines-cover" />
         <div style={{ display: 'flex', justifyContent: 'center' }}>
-          {this.props.wines.length > 0 ? (
-            <Wrapper> {this.renderWines()}</Wrapper>
-          ) : (
-            <NothingMessage>Nothing here yet.</NothingMessage>
-          )}
+          <Wrapper> {this.renderWines()}</Wrapper>
         </div>
       </section>
     )

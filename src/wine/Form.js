@@ -12,9 +12,10 @@ const Wrapper = styled.label`
   display: flex;
   flex-direction: column;
   align-items: center;
-  box-shadow: 4px 4px 10px rgba(200, 200, 200, 0.5);
+  box-shadow: 0 0 15px rgba(107, 101, 98, 0.5);
   border-radius: 5px;
   background: white;
+  opacity: 0.96;
   padding: 10px 20px 20px 20px;
 `
 
@@ -30,8 +31,8 @@ const SectionForm = styled.form`
   grid-template-columns: repeat(auto-fill, 300px);
   grid-auto-rows: auto;
   grid-gap: 15px;
-  margin-top: 170px;
   margin-bottom: 40px;
+  margin-top: 170px;
   justify-content: center;
   align-items: center;
   @media only screen and (min-width: 1200px) {
@@ -48,6 +49,7 @@ const PredictionBox = styled.div`
   box-shadow: 4px 4px 10px rgba(200, 200, 200, 0.5);
   border-radius: 5px;
   background: white;
+  opacity: 0.96;
   padding: 10px 20px 20px 20px;
   font-family: 'Noto Serif', serif;
 `
@@ -82,10 +84,10 @@ export default class Form extends Component {
         <SectionForm>
           {this.renderInputs()}
           <PredictionBox>
-            <h3>Your Wine Quality:</h3>
-            <span style={{ fontSize: '20px' }}>
+            <h3>your wine quality:</h3>
+            <div style={{ width: '90%', fontSize: '20px' }}>
               <NeuralNetwork data={this.props.data} callback={this.callback} />
-            </span>
+            </div>
           </PredictionBox>
         </SectionForm>
       </div>
