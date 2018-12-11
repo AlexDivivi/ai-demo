@@ -39,7 +39,7 @@ const ChatAnswer = styled.div`
   background: whitesmoke;
   padding: 15px;
   border-radius: 15px 15px 15px 0;
-  max-width: 45%;
+  max-width: 60%;
   text-align: left;
   line-height: 1.2em;
   font-size: 0.9em;
@@ -53,7 +53,7 @@ const ChatUserMessage = styled.div`
   background: whitesmoke;
   padding: 15px;
   border-radius: 15px 15px 0 15px;
-  max-width: 45%;
+  max-width: 60%;
   text-align: left;
   line-height: 1.2em;
   font-size: 0.9em;
