@@ -9,6 +9,7 @@ const Wrapper = styled.div`
   align-items: center;
   font-size: 18px;
   font-family: 'Noto Sans SC', sans-serif;
+  overflow-y: scroll;
 `
 
 const ChatBox = styled.div`
@@ -112,6 +113,7 @@ const SiteImg = styled.img`
 export default class Chatbot extends Component {
   state = {
     context: ['Hello', 'Hello', 'Hello'],
+    padding: 0,
     chatLog: [
       {
         user: false,
@@ -147,11 +149,19 @@ export default class Chatbot extends Component {
   }
 
   updateChatLog() {
-    const newLog = [
-      { user: true, message: this.textInput.value },
-      { user: false, message: this.response.innerText },
-      ...this.state.chatLog
-    ]
+    let newLog
+    if (this.state.message) {
+      newLog = [
+        { user: true, message: this.textInput.value },
+        { user: false, message: this.state.message },
+        ...this.state.chatLog
+      ]
+    } else {
+      newLog = [
+        { user: true, message: this.textInput.value },
+        ...this.state.chatLog
+      ]
+    }
     this.textInput.value = ''
 
     this.setState({
@@ -162,9 +172,11 @@ export default class Chatbot extends Component {
   renderChat() {
     return (
       <React.Fragment>
-        <ChatAnswer ref={el => (this.response = el)}>
-          {this.state.message}
-        </ChatAnswer>
+        {this.state.message && (
+          <ChatAnswer ref={el => (this.response = el)}>
+            {this.state.message}
+          </ChatAnswer>
+        )}
         {this.renderChatLog()}
       </React.Fragment>
     )
