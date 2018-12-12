@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
-import uid from 'uid'
 import { postMessage } from './service'
 
 const Wrapper = styled.div`
@@ -113,7 +112,6 @@ const SiteImg = styled.img`
 export default class Chatbot extends Component {
   state = {
     context: ['Hello', 'Hello', 'Hello'],
-    padding: 0,
     chatLog: [
       {
         user: false,
@@ -183,11 +181,11 @@ export default class Chatbot extends Component {
   }
 
   renderChatLog() {
-    return this.state.chatLog.map(entry =>
+    return this.state.chatLog.map((entry, index) =>
       entry.user ? (
-        <ChatUserMessage key={uid()}>{entry.message}</ChatUserMessage>
+        <ChatUserMessage key={index}>{entry.message}</ChatUserMessage>
       ) : (
-        <ChatAnswer key={uid()}>{entry.message}</ChatAnswer>
+        <ChatAnswer key={index - index - index}>{entry.message}</ChatAnswer>
       )
     )
   }

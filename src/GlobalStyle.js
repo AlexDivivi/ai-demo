@@ -4,6 +4,7 @@ export const GlobalStyle = createGlobalStyle`
 
 * {
   box-sizing: border-box;
+  font-family: 'Noto Serif', serif;
 }
 
 body {
@@ -14,7 +15,6 @@ body {
 }
 
 h3{
-  font-family: 'Noto Serif', serif;
   font-weight: 100;
   letter-spacing: 0.04em;
   font-size: 1.5em;

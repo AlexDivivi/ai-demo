@@ -28,7 +28,6 @@ const WrapperFooter = styled.footer`
     justify-content: center;
     text-decoration: none;
     color: black;
-    font-family: 'Noto Serif', serif;
     font-weight: 100;
     width: 100%;
     background: #f8f8f8;

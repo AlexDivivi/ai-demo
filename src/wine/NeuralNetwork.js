@@ -4,7 +4,6 @@ import styled from 'styled-components'
 import uid from 'uid'
 
 const Result = styled.div`
-  font-family: 'Noto Serif', serif;
   font-weight: bold;
   color: #751d27;
   letter-spacing: 0.1em;
@@ -13,7 +12,6 @@ const Result = styled.div`
 `
 
 const SaveButton = styled.button`
-  font-family: 'Noto Serif', serif;
   font-size: 14px;
   background: rgb(100, 100, 100);
   color: whitesmoke;
@@ -26,6 +24,16 @@ const SaveBox = styled.div`
   display: flex;
   width: 100%;
   margin-top: 45px;
+`
+
+const SaveInput = styled.input`
+  border-radius: 5px 0 0 5px;
+  border: 0;
+  background-color: whitesmoke;
+  padding-left: 15px;
+  font-size: 14px;
+  width: 70%;
+  height: 40px;
 `
 
 export default class NeuralNetwork extends Component {
@@ -74,16 +82,7 @@ export default class NeuralNetwork extends Component {
       <React.Fragment>
         <Result>{this.makePrediction()} / 10</Result>
         <SaveBox>
-          <input
-            style={{
-              borderRadius: '5px 0 0 5px',
-              border: '0',
-              backgroundColor: 'whitesmoke',
-              paddingLeft: '15px',
-              fontSize: '14px',
-              width: '70%',
-              height: '40px'
-            }}
+          <SaveInput
             ref={el => (this.textInput = el)}
             type="text"
             placeholder="Your Name..."
@@ -92,7 +91,7 @@ export default class NeuralNetwork extends Component {
           <SaveButton
             onClick={event => this.textInput.value && this.saveResult(event)}
           >
-            Save
+            save
           </SaveButton>
         </SaveBox>
       </React.Fragment>

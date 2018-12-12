@@ -21,9 +21,13 @@ const Wrapper = styled.label`
 
 const ValueBox = styled.div`
   margin-top: auto;
-  font-family: 'Noto Serif', serif;
   letter-spacing: 0.1em;
   color: rgb(100, 100, 100);
+`
+
+const FormHelper = styled.div`
+  display: flex;
+  justify-content: center;
 `
 
 const SectionForm = styled.form`
@@ -51,7 +55,15 @@ const PredictionBox = styled.div`
   background: white;
   opacity: 0.96;
   padding: 10px 20px 20px 20px;
-  font-family: 'Noto Serif', serif;
+`
+
+const FeatureInput = styled.input`
+  width: 70%;
+`
+
+const NNWrapper = styled.div`
+  width: 90%;
+  font-size: 20px;
 `
 
 export default class Form extends Component {
@@ -61,9 +73,8 @@ export default class Form extends Component {
         <h3>{item.name}</h3>
         <p>{item.text}</p>
         <ValueBox>{item.value}</ValueBox>
-        <input
+        <FeatureInput
           type="range"
-          style={{ width: '70%' }}
           onChange={event => this.props.updateValue(event, item.id)}
           step={item.step}
           min={item.min}
@@ -80,17 +91,17 @@ export default class Form extends Component {
 
   render() {
     return (
-      <div style={{ display: 'flex', justifyContent: 'center' }}>
+      <FormHelper>
         <SectionForm>
           {this.renderInputs()}
           <PredictionBox>
             <h3>your wine quality:</h3>
-            <div style={{ width: '90%', fontSize: '20px' }}>
+            <NNWrapper>
               <NeuralNetwork data={this.props.data} callback={this.callback} />
-            </div>
+            </NNWrapper>
           </PredictionBox>
         </SectionForm>
-      </div>
+      </FormHelper>
     )
   }
 }

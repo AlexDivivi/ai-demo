@@ -1,7 +1,11 @@
 import React, { Component } from 'react'
 import { SiteTopImg } from '../GlobalStyle'
 import styled from 'styled-components'
-import uid from 'uid'
+
+const GridWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+`
 
 const Wrapper = styled.div`
   display: grid;
@@ -30,7 +34,6 @@ const WineBox = styled.div`
   background: white;
   border-radius: 5px;
   box-shadow: 0 0 15px rgba(107, 101, 98, 0.5);
-  font-family: 'Noto Serif', serif;
   grid-auto-rows: auto;
   height: 320px;
   letter-spacing: 0.05em;
@@ -52,7 +55,6 @@ const TextElement = styled.div`
 `
 
 const FeatureValue = styled.span`
-  font-family: 'Noto Serif', serif;
   letter-spacing: 0.1em;
   color: rgb(100, 100, 100);
   font-size: 15px;
@@ -60,7 +62,6 @@ const FeatureValue = styled.span`
 `
 
 const QualityValue = styled.span`
-  font-family: 'Noto Serif', serif;
   color: #751d27;
   font-size: 25px;
   display: flex;
@@ -75,7 +76,6 @@ const QualityValue = styled.span`
 `
 
 const UserName = styled.h3`
-  font-family: 'Noto Serif', serif;
   font-weight: 100;
   letter-spacing: 0.1em;
   color: #751d27;
@@ -100,8 +100,8 @@ const DeleteButton = styled.button`
 
 export default class MyWines extends Component {
   renderWines() {
-    return this.props.wines.map(item => (
-      <WineBox key={uid()}>
+    return this.props.wines.map((item, index) => (
+      <WineBox key={index}>
         <div
           style={{
             display: 'flex',
@@ -109,7 +109,6 @@ export default class MyWines extends Component {
             justifyContent: 'center'
           }}
         >
-          {' '}
           <UserName>{item.userName}'s wine </UserName>
           {window.innerWidth < 500 && (
             <DeleteButton onClick={() => this.props.onClick(item.id)}>
@@ -131,7 +130,7 @@ export default class MyWines extends Component {
         </div>
 
         {item.features.map(item => (
-          <TextElement key={uid()}>
+          <TextElement key={item.id}>
             {item.name}
             <FeatureValue>{item.value}</FeatureValue>
           </TextElement>
@@ -142,12 +141,12 @@ export default class MyWines extends Component {
 
   render() {
     return (
-      <section>
+      <React.Fragment>
         <SiteTopImg src="images/redwine-min.jpeg" alt="my-wines-cover" />
-        <div style={{ display: 'flex', justifyContent: 'center' }}>
+        <GridWrapper>
           <Wrapper> {this.renderWines()}</Wrapper>
-        </div>
-      </section>
+        </GridWrapper>
+      </React.Fragment>
     )
   }
 }
