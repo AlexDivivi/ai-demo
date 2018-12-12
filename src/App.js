@@ -40,7 +40,7 @@ const WrapperFooter = styled.footer`
       color: white;
     }
     &:last-child {
-      border-left: 1px solid white;
+      border-left: 1px solid #d1cdc7;
     }
   }
 `
