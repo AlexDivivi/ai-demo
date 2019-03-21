@@ -1,0 +1,26 @@
+swagger: '2.0'
+schemes: [http, https]
+info:
+  title: Wine API
+  version: '0.1'
+  description: Simple example API to predict Wine Quality
+
+consumes:
+  - application/json
+produces:
+  - application/json
+paths:
+  /:
+    post:
+      operationId: app.get_quality
+      summary: get quality
+      parameters:
+        - in: body
+          name: features
+          schema:
+            type: array
+      responses:
+        200:
+          description: Return pred
+          schema:
+            type: integer
