@@ -18,7 +18,6 @@ const Wrapper = styled.div`
   }
   grid-auto-rows: auto;
   grid-gap: 15px;
-  margin-top: 170px;
   margin-bottom: 40px;
   justify-content: center;
   align-items: center;

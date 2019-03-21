@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import * as tf from '@tensorflow/tfjs'
 import styled from 'styled-components'
 import uid from 'uid'
+import { getPred } from './service'
 
 const Result = styled.div`
   font-weight: bold;
@@ -38,35 +38,24 @@ const SaveInput = styled.input`
 
 export default class NeuralNetwork extends Component {
   state = {
-    model: null,
-    componentMount: false
+    result: 0
   }
 
-  async componentWillMount() {
-    let model = await tf.loadModel('data/model/model.json')
-    this.setState({
-      model: model,
-      componentMount: true
-    })
-  }
-
-  makePrediction() {
+  async componentWillReceiveProps() {
     let features = this.props.data.map(item => (features = item.value))
-    const xs = tf.tensor2d([features])
-    if (this.state.componentMount) {
-      let model = this.state.model
-      const prediction = model.predict(xs, { batchSize: 1 }).flatten()
-      const result = Math.round(prediction.get([0]))
-      return result
-    }
-    const result = 0
-    return result
+    await getPred(features).then(pred => {
+      this.setState({
+        result: pred
+      })
+    })
+
+    console.log(this.state.result)
   }
 
   saveResult(event) {
     event.preventDefault()
     let features = this.props.data.map(item => (features = item))
-    const result = this.makePrediction()
+    const result = this.state.result
     const results = {
       userName: this.textInput.value,
       features,
@@ -80,7 +69,11 @@ export default class NeuralNetwork extends Component {
   render() {
     return (
       <React.Fragment>
-        <Result>{this.makePrediction()} / 10</Result>
+        <Result>
+          {typeof this.state.result == 'number'
+            ? this.state.result + ' / 10'
+            : 'Error ' + this.state.result.status}
+        </Result>
         <SaveBox>
           <SaveInput
             ref={el => (this.textInput = el)}

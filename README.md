@@ -2,7 +2,7 @@ Final Project of neue fische Trainee Web Development program.
 
 Build in React.
 
-Wine Quality uses Tensorflow.
+Wine Quality uses //.
 
 Chatbot used: https://github.com/lukalabs/cakechat
 
